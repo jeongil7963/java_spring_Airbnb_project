@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reservedDateMapper">
+	<select id="getReservedDateListByAccommodationId" resultType="airdnd.vo.ReservedDateVO">
+		select * from reserveddate where accom_id=#{value}
+	</select>
+	<select id="getReservedDateListByReserveId" resultType="airdnd.vo.ReservedDateVO">
+		select * from reserveddate where accom_id=#{value}
+	</select>
+	<select id="getReserveDateIdListByDates" parameterType="hashmap" resultType="airdnd.vo.ReservedDateVO">
+		select * from reserveddate where reserv_date between TO_DATE(#{startDate},'yyyy-MM-dd') and TO_DATE(#{endDate},'yyyy-MM-dd')
+	</select>
+	<insert id="insertReservedDate" parameterType="airdnd.vo.ReservedDateVO">
+		insert into reserveddate values (#{accom_id}, RD_ID_AUTOINC.NEXTVAL, TO_DATE(#{reserv_date}, 'yyyy-MM-dd'), #{reserv_id}) 
+	</insert>
+<!-- 	<insert id="insertReservedDateList" parameterType="java.util.List"> -->
+<!-- 		insert into reserveddate  -->
+<!-- 		(accom_id, rd_id, reserv_date) -->
+<!-- 		values -->
+<!-- 		<foreach collection="list" item="element" index="index" separator=","> -->
+<!-- 			 (#{element.accom_id}, RD_ID_AUTOINC.NEXTVAL, TO_DATE(#{element.reserv_date}, 'yyyy-MM-dd')) -->
+<!-- 		</foreach> -->
+<!-- 	</insert> -->
+	<delete id="deleteReservedDateByReservedDateId">
+		delete from reserveddate where rd_id = #{value}
+	</delete>
+	<delete id="deleteReservedDateByReservationId">
+		delete from reserveddate where reserv_id = #{value}
+	</delete>
+	<delete id="deleteReservedListByreservIdDates" parameterType="hashmap">
+		delete from reserveddate where reserv_id = #{reserv_id}
+		and reserv_date <![CDATA[>=]]> #{start_date}
+		and reserv_date <![CDATA[<=]]> #{end_date}
+	</delete>
+	<select id="checkReservedDate" parameterType="hashmap" resultType="airdnd.vo.ReservedDateVO">
+		select accom_id, rd_id, reserv_date 
+		from reserveddate 
+		where accom_id = #{accom_id}
+		and reserv_date between TO_DATE(#{startDate},'yyyy-MM-dd') 
+			and TO_DATE(#{endDate},'yyyy-MM-dd')
+	</select>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<context:property-placeholder location="classpath:config/values.properties" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		p:driverClassName="${db.driver}" p:url="${db.url}"
+		p:username="${db.username}" p:password="${db.password}" />
+		
+	<!-- sqlSessionFactoryBean 설정 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:config/sqlMapConfig.xml"></property>
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:config/usersMapper.xml</value>
+				<value>classpath:config/accommodationMapper.xml</value>
+				<value>classpath:config/reservedDateMapper.xml</value>
+				<value>classpath:config/reservationMapper.xml</value>
+				<value>classpath:config/amenityMapper.xml</value>
+				<value>classpath:config/imageMapper.xml</value>
+				<value>classpath:config/reviewMapper.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- SqlSessionTemplate 설정 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+	
+	<!-- component scanning 설정 -->	
+	<context:component-scan base-package="airdnd">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+</beans>

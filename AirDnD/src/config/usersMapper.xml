@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="usersMapper">
+<!-- aliasing 맵핑 -->
+<!-- 	<resultMap type="UserVO" id="UserVOResultMap"> -->
+<!-- 		<id property="userid" column="myId" javaType="String" jdbcType="VARCHAR"/> -->
+<!-- 		<result property="name" column="myName" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 		<result property="gender" column="myGender" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 		<result property="city" column="myCity" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 	</resultMap> -->
+<!-- 	<select id="getUser" parameterType="String" resultMap="UserVOResultMap"> -->
+<!-- 		select userid myId, name myName, gender myGender, city myCity from users where userid=#{value} -->
+<!-- 	</select> -->
+	<select id="getUser" resultType="airdnd.vo.UserVO">
+		select * from users where user_id=#{value}
+	</select>
+	<select id="getUsers" resultType="airdnd.vo.UserVO">
+		select * from users
+	</select>
+	<insert id="insertUser" parameterType="airdnd.vo.UserVO">
+		insert into users values (#{userid},TO_DATE(#{birthday}, 'yyyy-MM-dd'),#{email},#{phone},#{pw},TO_DATE(#{reg_date},'yyyy-MM-dd')) 
+	</insert>
+	<update id="updateUser" parameterType="airdnd.vo.UserVO">
+		update users set birthday=TO_DATE(#{birthday},'yyyy-MM-dd'), email=#{email}, phone=#{phone}, pw=#{pw}, reg_date=TO_DATE(#{reg_date},'yyyy-MM-dd') where user_id=#{user_id}
+	</update>
+	<delete id="deleteUser">
+		delete from users where user_id=#{value}
+	</delete>
+	<select id="loginUser" parameterType="hashmap" resultType="airdnd.vo.UserVO">
+		select * from users where user_id=#{userid} and pw=#{pw}
+	</select>
+</mapper>

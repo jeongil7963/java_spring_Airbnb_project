@@ -1,0 +1,72 @@
+a:link { color: black; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+.reservationList{
+	width:30%;
+	height:550px;
+	margin:50px 10px 30px 30px;
+	border:none;
+	float:left;
+	padding:10px;
+}	
+	.reservationPicture{
+		width:100%;
+		height:400px;
+		background-color:#2fab32;
+	}
+	.reservationWrapper{
+		color: #333333;
+		font-size : 20px;
+		margin-top:10px;
+		text-align: left;				
+
+	}
+	.reservationName{
+		color: #333333;
+		font-size : 20px;
+		margin-top:10px;
+	}
+	
+	.reservationDate{
+		color: #333333;
+		font-size : 15px;
+		margin-top:5px;
+		text-align: left;
+		clear:left;
+		
+	}
+	.reservationPeople{
+		color: #333333;
+		font-size : 15px;
+		margin-top:5px;
+		text-align: left;
+		clear:left;
+		
+	}
+	.reservationBtn{
+		float:right;
+	}
+		#updateBtn{
+		 margin-top:5px;
+		 text-align: center;
+ 		 background-color:#FF5A5F; 
+		 border-radius:10%;
+		 color:white;
+         border:none;
+         font-size:20px;
+         font-family:bold;
+		
+	}
+		    
+#tab{
+	width:30%;
+	height:600px;
+	margin:auto;
+	margin-top:50px;
+	border:none;
+	padding:10px;
+	margin-bottom:10px;
+}
+/* clear:left는 float:left를 취소, right는 float:right을 취소
+ */
+
+			

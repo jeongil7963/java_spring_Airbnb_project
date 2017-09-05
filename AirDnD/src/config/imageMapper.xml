@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="imageMapper">
+<!-- aliasing 맵핑 -->
+<!-- 	<resultMap type="UserVO" id="UserVOResultMap"> -->
+<!-- 		<id property="userid" column="myId" javaType="String" jdbcType="VARCHAR"/> -->
+<!-- 		<result property="name" column="myName" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 		<result property="gender" column="myGender" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 		<result property="city" column="myCity" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 	</resultMap> -->
+<!-- 	<select id="getUser" parameterType="String" resultMap="UserVOResultMap"> -->
+<!-- 		select userid myId, name myName, gender myGender, city myCity from users where userid=#{value} -->
+<!-- 	</select> -->
+	<select id="getImageListByAccomId" resultType="airdnd.vo.ImageVO">
+		select * from image where accom_id=#{value}
+	</select>
+	<insert id="insertImage" parameterType="airdnd.vo.ImageVO">
+		insert into IMAGE values (#{accom_id}, IMAGE_ID_AUTOINC.NEXTVAL, #{path}) 
+	</insert>
+	<delete id="deleteImageByImageId" parameterType="airdnd.vo.ImageVO">
+		delete from image where image_id = #{image_id} 
+	</delete>
+</mapper>

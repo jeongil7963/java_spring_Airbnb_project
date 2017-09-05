@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="amenityMapper">
+<!-- aliasing 맵핑 -->
+<!-- 	<resultMap type="UserVO" id="UserVOResultMap"> -->
+<!-- 		<id property="userid" column="myId" javaType="String" jdbcType="VARCHAR"/> -->
+<!-- 		<result property="name" column="myName" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 		<result property="gender" column="myGender" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 		<result property="city" column="myCity" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 	</resultMap> -->
+<!-- 	<select id="getUser" parameterType="String" resultMap="UserVOResultMap"> -->
+<!-- 		select userid myId, name myName, gender myGender, city myCity from users where userid=#{value} -->
+<!-- 	</select> -->
+	<select id="getAmenityListByAccomId" resultType="airdnd.vo.AmenityVO">
+		select * from amenity where accom_id = #{accom_id}
+	</select>
+	<insert id="insertAmenity" parameterType="airdnd.vo.AmenityVO">
+		insert into amenity values (#{accom_id}, AMEN_ID_AUTOINC.NEXTVAL, #{amenity_type}, #{amenity_value}) 
+	</insert>
+	<delete id="deleteAmenityListByAccomId">
+		delete from amenity where accom_id = #{value}
+	</delete>
+</mapper>

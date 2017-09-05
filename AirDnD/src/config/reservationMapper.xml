@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reservationMapper">
+	<select id="getReservationListByUserId" resultType="airdnd.vo.ReservationVO">
+		select * from reservation where user_id=#{value} order by reserv_id desc
+	</select>
+	<select id="getReservationListByHostId" resultType="airdnd.vo.ReservationVO">
+		select * from reservation where host_id=#{value}
+	</select>
+	<select id="getReservationListByAccomId" resultType="airdnd.vo.ReservationVO">
+		select * from reservation where accom_id=#{value}
+	</select>
+	<select id="getReservationByreservId" resultType="airdnd.vo.ReservationVO">
+		select * from reservation where reserv_id=#{value}
+	</select>
+	<insert id="insertReservation" parameterType="airdnd.vo.ReservationVO">
+		insert into reservation values (#{accom_id}, TO_DATE(#{end_date},'yyyy-MM-dd'), #{number_of_people},
+		RESERVED_ID_AUTOINC.NEXTVAL, TO_DATE(#{start_date}, 'yyyy-MM-dd'), #{user_id},
+		#{price}, #{host_id}, 0, 0) 
+	</insert>
+	<update id="updateReservation" parameterType="airdnd.vo.ReservationVO">
+		update reservation set end_date = TO_DATE(#{end_date},'yyyy-MM-dd'),
+		number_of_people = #{number_of_people},
+		start_date = TO_DATE(#{start_date}, 'yyyy-MM-dd'),
+		user_id = #{user_id},
+		price = #{price}, 
+		host_id = #{host_id}, 
+		noti_host = 0,
+		noti_confirmed = 0 
+		where reserv_id = #{reserv_id} 
+	</update>
+	<delete id="deleteReservationByReservationId">
+		delete from reservation where reserv_id = #{value}
+	</delete>
+	<select id="checkReservId" resultType="int">
+		select RESERVED_ID_AUTOINC.CURRVAL from dual
+	</select>
+	<select id="getNotiHostByReservID" resultType="int">
+		select noti_host from reservation where reserv_id = #{value}
+	</select>
+	<select id="getNotiConfirmedByReservID" resultType="int">
+		select noti_confirmed from reservation where reserv_id = #{value}
+	</select>
+	<update id="confirmNotiHostByReservID">
+		update reservation set noti_host = 1 where reserv_id = #{value}
+	</update>
+	<update id="confirmedNotiConfirmedByReservID">
+		update reservation set noti_confirmed = 1 where reserv_id = #{value}
+	</update>
+	<update id="deniedNotiConfirmedByReservID">
+		update reservation set noti_confirmed = 2 where reserv_id = #{value}
+	</update>
+<!-- 	<insert id="insertReservationList" parameterType="java.util.List"> -->
+<!-- 		insert into reservation  -->
+<!-- 		(accom_id, rd_id, reserv_date) -->
+<!-- 		values -->
+<!-- 		<foreach collection="list" item="element" index="index" separator=","> -->
+<!-- 			 (#{element.accom_id}, RD_ID_AUTOINC.NEXTVAL, TO_DATE(#{element.reserv_date}, 'yyyy-MM-dd')) -->
+<!-- 		</foreach> -->
+<!-- 	</insert> -->
+</mapper>

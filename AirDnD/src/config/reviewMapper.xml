@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reviewMapper">
+<!-- aliasing 맵핑 -->
+<!-- 	<resultMap type="UserVO" id="UserVOResultMap"> -->
+<!-- 		<id property="userid" column="myId" javaType="String" jdbcType="VARCHAR"/> -->
+<!-- 		<result property="name" column="myName" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 		<result property="gender" column="myGender" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 		<result property="city" column="myCity" javaType="String" jdbcType="VARCHAR" /> -->
+<!-- 	</resultMap> -->
+<!-- 	<select id="getUser" parameterType="String" resultMap="UserVOResultMap"> -->
+<!-- 		select userid myId, name myName, gender myGender, city myCity from users where userid=#{value} -->
+<!-- 	</select> -->
+	<select id="getReviewListByAccomId" resultType="airdnd.vo.ReviewVO">
+		select * from review where accom_id=#{value}
+	</select>
+	<select id="getReviewListByUserId" resultType="airdnd.vo.ReviewVO">
+		select * from review where user_id=#{value}
+	</select>
+	<insert id="insertReview" parameterType="airdnd.vo.ReviewVO">
+		insert into review values (REVIEW_ID_AUTOINC.NEXTVAL, #{accom_id}, #{text}, #{user_id}, #{point}, #{title}) 
+	</insert>
+	<update id="updateReview" parameterType="airdnd.vo.ReviewVO">
+		update review set text = #{text}, point = #{point}
+		where review_id = #{review_id} 
+	</update>
+	<delete id="deleteReviewByImageId" parameterType="airdnd.vo.ReviewVO">
+		delete from review where review_id = #{review_id} 
+	</delete>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="accommodationMapper">
+	<select id="getAccommodationByAccommodationId" resultType="airdnd.vo.AccommodationVO">
+		select * from accommodation where accom_id=#{value}
+	</select>
+	<select id="getAccommodationByHostId" resultType="airdnd.vo.AccommodationVO">
+		select * from accommodation where host_id=#{host_id}	
+	</select>
+	<insert id="insertAccommodation" parameterType="airdnd.vo.AccommodationVO">
+		insert into accommodation values (ACCOM_ID_AUTOINC.NEXTVAL, #{accomodates}, #{bathrooms}, #{bedrooms},
+		#{description}, #{host_id}, #{location}, #{price}, #{property_type}, #{room_type}, #{beds}, #{building_type}, 
+		#{currency_unit}, #{name}, 0.0)  
+		
+<!-- 			insert into accommodation  -->
+<!-- 			values (ACCOM_ID_AUTOINC.NEXTVAL, #{room_type}, -->
+<!-- 					#{accomodates}, #{property_type}, -->
+<!-- 					#{building_type},#{bedrooms}, -->
+<!-- 					#{beds}, #{bathrooms}, -->
+<!-- 					#{national_name}, #{location}, -->
+<!-- 					#{name},#{price}, #{currency_unit}, -->
+<!-- 					#{host_id}, 0.0) -->
+
+	</insert>
+	<delete id="deleteAccommodationByAccommodationId">
+		delete from accommodation where accom_id = #{value}
+	</delete>
+	<update id="updateAccommodation" parameterType="airdnd.vo.AccommodationVO">
+		update accommodation set accomodates = #{accomodates}, bathrooms = #{bathrooms}, bedrooms = #{bedrooms},
+		description = #{description}, host_id = #{host_id}, location = #{location}, price = #{price},
+		property_type = #{property_type}, room_type = #{room_type}, beds = #{beds}, building_type = #{building_type}, 
+		currency_unit = #{currency_unit}, name = #{name}, avg_point = #{avg_point}
+		where accom_id = #{accom_id} 
+	</update>
+	<select id="getAccommodationListBySearchBar" parameterType="hashmap" resultType="airdnd.vo.AccommodationVO">
+		select * from accommodation where not exists (
+			select distinct accom_id, rd_id, reserv_date 
+			from reserveddate 
+			where reserv_date between TO_DATE(#{startDate},'yyyy-MM-dd') 
+				and TO_DATE(#{endDate},'yyyy-MM-dd')
+		) 
+		and location like '%'||#{location}||'%'
+		and accomodates <![CDATA[>=]]> #{numPeople}
+	</select>
+	
+	<select id="getAccommodationListBySearchBarUsingPriceFilter" parameterType="hashmap" resultType="airdnd.vo.AccommodationVO">
+		select * from accommodation where not exists (
+			select distinct accom_id, rd_id, reserv_date 
+			from reserveddate 
+			where reserv_date between TO_DATE(#{startDate},'yyyy-MM-dd') 
+				and TO_DATE(#{endDate},'yyyy-MM-dd')
+		) 
+		and location like '%'||#{location}||'%'
+		and accomodates <![CDATA[>=]]> #{numPeople}
+		and price <![CDATA[>=]]> #{startPrice}
+		and price<![CDATA[<=]]> #{endPrice}
+	</select>
+	
+
+	<select id="checkAccomId" resultType="int">
+		select ACCOM_ID_AUTOINC.CURRVAL from dual
+	</select>
+</mapper>

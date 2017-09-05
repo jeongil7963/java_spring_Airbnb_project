@@ -1,0 +1,466 @@
+.body{
+	margin:0;
+}
+h1{
+	padding:20px 30px;
+}
+.radius{
+	border-radius: 15px;
+}
+#top{
+	width:1900px;
+	height:90px;
+	background-color:#ffffff;
+	border-bottom:1px solid #dbdbdb;
+	margin-top:10px;
+}
+	#topMemberStatusWrapper{
+	     width:300px;
+	     height:80px;
+	     margin-top:5px;
+	     margin-left:700px;
+	     z-index:999;
+	  }
+	  #topNomemberStatusWrapper{
+	     width:300px;
+	     height:80px;
+	     margin-top:5px;
+	     margin-left:650px;
+	     z-index:999;
+	  }
+	#memberStatusWrapper{
+		width:300px;
+		height:80px;
+		margin-top:5px;
+		margin-left:1520px;
+		z-index:999;
+	}
+	#nomemberStatusWrapper{
+		width:300px;
+		height:80px;
+		margin-top:5px;
+		margin-left:1450px;
+		z-index:999;
+	}
+		#memberStatus{
+			width:200px;
+			height:90px;
+			float:left;
+			margin:auto 0;
+		}
+			#memberStatusFont{
+				margin-top:25px;
+				margin-left:10px;
+			}
+		#noMemberStatus{
+			width:200px;
+			height:80px;
+			float:right;
+			border-radius:10px;
+			margin:auto 0;
+		}
+		a:link { text-decoration: none;}
+		#tempImg{
+	      width:80px;
+	      height:80px;
+	      float:left;
+	      background-color:#ff5a5f;
+	      border-radius:50px;
+	      cursor:pointer;
+	  	}
+	  		.indexFont{
+	  			color:#000;
+	  			font-weight:bold;
+	  			margin-left:10px;
+	  		}
+			#rollDown{
+				width:160px;
+				height:100px;
+				margin-top:6px;
+				margin-left:-123px;
+				position:absolute;
+				padding-top:5px;
+				padding-left:5px;
+				z-index:999;
+				color:#fff;
+			}
+		#logo{
+			width:100px;
+			height:80px;
+			float:left;
+			cursor:pointer;
+		}
+		#topSearch{
+			width:820px;
+			height:40px;
+			background-color:#fff;
+			float:left;
+			margin-top:10px;
+		}
+			#topCityDiv{
+				width:200px;
+				height:40px;
+				float:left;
+			}
+				#topCity{
+					width:200px;
+					height:40px;
+					padding:0px;
+					border:1px solid #dbdbdb;
+					border-radius:2px 0 0 2px;
+				}
+			#topDatepickerDiv{
+				width:300px;
+				height:40px;
+				float:left;
+				padding-left:5px;
+			}
+				#topDatepicker1{
+					width:130px;
+					height:40px;
+					padding:0px;
+					border:1px solid #dbdbdb;
+					border-radius:2px 0 0 2px;
+				}
+				#topDatepicker2{
+					width:130px;
+					height:40px;
+					padding:0px;
+					border:1px solid #dbdbdb;
+					border-radius:2px 0 0 2px;
+				}
+			#topPersonnelDiv{
+				width:200px;
+				height:42px;
+				float:left;
+
+				border-radius:2px 0 0 2px;
+			}
+				#topPersonnel{
+					width:200px;
+					height:42px;
+				}
+				#topSearchSubmitBtn{
+					width:90px;
+					height:42px;
+					border:none;
+					border-radius:2px 0 0 2px;
+					background-color:#ff5a5f;		
+					color:#fff;
+					border:none;
+					font-family:bold;
+				}
+/* 				ul{ */
+/* 				   list-style:none;			    */
+/* 				} */
+#body{
+	width:1900px;
+	float:left;
+	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #484848;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;	
+}
+	/*roomsList start*/ 
+	#roomsListUpdateWrapper{
+		width:520px;
+		height:700px;
+	}
+	#roomsListWrapper{
+		width:1300px;
+		float:left;
+		margin-left:300px;
+		padding-bottom:50px;
+	}
+		.roomsList{
+			width:700px;
+			height:100px;
+			border:1px solid black;
+			margin:40px 0 0 200px;
+			padding:10px;
+		}
+			.roomsListReservationDiv{
+				width:150px;
+				border:1px solid black;
+				background-color:white;
+				padding-left:10px;
+				position:absolute;
+				margin-top:-55px;
+				margin-left:460px;
+				z-index:999;
+			}
+			.roomsListDetailInfoDiv{
+				width:150px;
+				border:1px solid black;
+				background-color:white;
+				padding-left:10px;
+				position:absolute;
+				margin-top:-35px;
+				margin-left:500px;
+				z-index:998;
+			}
+			.roomsListImg{
+				width:100px;
+				height:100px;
+				border:1px solid red;
+				bordr-radius:10px;
+				float:left;
+			}
+			.roomsListContents{
+				width:400px;
+				margin:10px 0 0 30px;
+				float:left;
+			}
+			.roomsListBtn{
+				margin-top:10px;
+				float:left;
+			}
+				.roomsListUpdate{
+					width:80px;
+					height:40px;
+				}
+				.roomsListDelete{
+					width:80px;
+					height:40px;
+				}
+	/*roomsList end*/ 
+	/*Index start*/ 
+#searchBar{
+		float:left;
+		margin:150px 350px;
+		/*background-color:#F4F5F5;*/
+		background-image: url('img/background.jpg');
+	}
+		.searchFont{
+			margin:0px;
+			margin-left:10px;
+			margin-top:10px;
+		}
+		#searchForm{
+			margin: 100px 350px;
+		}
+		#search{
+			width:1180px;
+			height:350px;
+			background-color: rgba( 247, 247, 247, 0.8 );
+			float:left;
+			border:1px solid #DBDBDB;
+			margin-top:50px;
+		}
+			#indexH1{
+				font-size:40px;
+				font-weight:bold;
+				margin-left:40px;
+				z-index:2;
+			}
+			#indexH4{
+				margin-top:-25px;
+				font-size:23px;
+				font-weight:none;
+				margin-left:40px;
+				z-index:2;
+			}
+			#cityDiv{
+				width:350px;
+				height:90px;
+				margin:30px 0 30px 40px;
+				float:left;
+				padding:0px;
+				background-color:#fff;
+				border:1px solid #dbdbdb;
+				border-radius:5px 0 0 5px;
+			}
+				#city{
+					width:340px;
+					height:50px;
+					margin-top:6px;
+					margin-left:9px;
+					border:none;
+					color:#484848;
+					font-size:18px;
+				}
+			#datepickerDiv{
+				width:350px;
+				height:90px;
+				background-color:#fff;
+				float:left;
+				margin-top:30px;
+				border:1px solid #dbdbdb;
+			}
+				#datepicker1{
+					width:120px;
+					height:50px;
+					margin-top:6px;
+					margin-left:9px;
+					border:none;
+					color:#484848;
+					font-size:18px;
+				}
+				#datepicker2{
+					width:140px;
+					height:50px;
+					margin-top:6px;
+					margin-left:30px;
+					border:none;
+					color:#484848;
+					font-size:18px;
+				}
+			#personnelDiv{
+				width:350px;
+				height:90px;
+				float:left;
+				margin-top:30px;
+				background-color:#fff;
+				border:1px solid #dbdbdb;
+				border-radius:0 5px 5px 0;
+			}
+				#personnel{
+					width:200px;
+					height:52px;
+					margin-top:8px;
+					margin-left:10px;
+					border:none;
+					color:#484848;
+					font-size:18px;
+				}	
+				#searchSubmitBtn{
+					width:80px;
+					height:60px;
+					margin-top:48px;
+					margin-left:-90px;
+					margin-right:10px;
+					background-color:#FF5A5F;
+					border-radius:10%;
+					color:#fff;
+					border:none;
+					font-size:20px;
+					font-family:bold;
+				}
+	/*Index end*/ 
+	/*roomsAdd start*/
+	#contentsWrapper{
+		margin-left:40px;
+		margin-top:40px;
+	}
+	#roomsAddBtn{
+		width:700px;
+	}
+	/*roomsAdd end*/
+#footer{
+	width:1900px;
+	height:200px;
+	background-color:#ffffff;
+	clear:left;
+	float:left;
+	border-top:1px solid #dbdbdb;
+}
+	#footerContentsWrapepr{
+		width:1000px;
+		margin-left:330px;
+		margin-top:40px;
+	}
+	#footerContents1{
+		float:left;
+	}
+		#footerLogo{
+			width:80px;
+			height:60px;
+			float:left;
+		}
+		#footerP1{
+			margin-left:20px;
+			font-weight:bold;
+			float:left;
+			font-size:13px;
+		}
+		#footerP1Right{
+			margin-top:13px;
+			margin-left:10px;
+			float:left;
+			font-size:13px;
+		}
+	#footerContents2{
+		margin-left:18px;
+		margin-top:10px;
+		clear:left;
+		float:left;
+	}
+		#footerP2{
+			color:grey;
+			font-size:12px;
+		}
+
+/*bootstrap*/
+.list-group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.list-group-item-action {
+  width: 100%;
+  color: #464a4c;
+  text-align: inherit;
+}
+
+.list-group-item-action .list-group-item-heading {
+  color: #292b2c;
+}
+
+.list-group-item-action:focus, .list-group-item-action:hover {
+  color: #464a4c;
+  text-decoration: none;
+  background-color: #f7f7f9;
+}
+
+.list-group-item-action:active {
+  color: #292b2c;
+  background-color: #eceeef;
+}
+
+.list-group-item {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list-group-item:first-child {
+  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+}
+
+.list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.list-group-item:focus, .list-group-item:hover {
+  text-decoration: none;
+}
